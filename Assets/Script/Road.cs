@@ -12,7 +12,7 @@ public class Road : MonoBehaviour
     Vector3 target = new Vector3(1, 0.5f, 0);
     void Start()
     {
-        //StartCoroutine(popDragon());
+        StartCoroutine(popDragon());
       
     }
 
