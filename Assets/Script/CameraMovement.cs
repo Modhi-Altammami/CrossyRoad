@@ -28,6 +28,7 @@ public class CameraMovement : MonoBehaviour
     {
         startPos = transform.position;
         targetPos = player.position + offset;
+        targetPos = new Vector3(targetPos.x, startPos.y, targetPos.z < startPos.z ? startPos.z : targetPos.z);
         Vector3 smoothedPosition = Vector3.Lerp(startPos, targetPos, smoothSpeed);
         transform.position = smoothedPosition;
     }
