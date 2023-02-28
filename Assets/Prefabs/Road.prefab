@@ -242,14 +242,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5925d9147c93142a9aa988a95bff16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragons:
+  Obstacles:
   - {fileID: 2761449932930628655, guid: 56b473bc8d47b6f45a23270d7f818459, type: 3}
-  - {fileID: 7837087278345187612, guid: 3991c23dc5dbba147a5d539674930af9, type: 3}
   - {fileID: 3936096571845851961, guid: 81aa6db8e82817a4082f21296df6d93f, type: 3}
+  - {fileID: 7837087278345187612, guid: 3991c23dc5dbba147a5d539674930af9, type: 3}
   Lanes:
   - {fileID: 4853333541926235960}
   - {fileID: 4853333540659672667}
   - {fileID: 4853333540307105236}
+  isRoad: 1
 --- !u!1 &4853333541926235961
 GameObject:
   m_ObjectHideFlags: 0

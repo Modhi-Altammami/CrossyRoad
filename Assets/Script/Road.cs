@@ -5,26 +5,27 @@ using UnityEngine;
 public class Road : MonoBehaviour
 {
 
-    [SerializeField] GameObject[] dragons;
+    [SerializeField] GameObject[] Obstacles;
     [SerializeField] Transform[] Lanes;
+    [SerializeField] bool isRoad;
     GameObject temp;
     float step;
     Vector3 target = new Vector3(1, 0.5f, 0);
     void Start()
     {
-        StartCoroutine(popDragon());
+        StartCoroutine(popObstacle());
       
     }
 
-    IEnumerator popDragon()
+    IEnumerator popObstacle()
     {
         while (true)
         {
-            GameObject dragon = dragons[Random.Range(0, dragons.Length)];
-            Instantiate(dragon, Lanes[Random.Range(0, Lanes.Length)]);
+            GameObject Obstacle = Obstacles[Random.Range(0, Obstacles.Length)];
+            Instantiate(Obstacle, Lanes[Random.Range(0, Lanes.Length)]);
             //MoveFunction(dragon);
           //  dragon.transform.Translate(target * 2f * Time.deltaTime);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(isRoad?5:0.5f);
 
         }
 
