@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         isMoving = false;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         Debug.Log("Game Over: "+collision);
     }
