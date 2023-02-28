@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class Road : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField] GameObject[] dragons;
+    [SerializeField] Transform[] Lanes;
+    GameObject temp;
+    float step;
+    Vector3 target = new Vector3(1, 0.5f, 0);
     void Start()
     {
-        
+        //StartCoroutine(popDragon());
+      
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator popDragon()
     {
-        
+        while (true)
+        {
+            GameObject dragon = dragons[Random.Range(0, dragons.Length)];
+            Instantiate(dragon, Lanes[Random.Range(0, Lanes.Length)]);
+            //MoveFunction(dragon);
+          //  dragon.transform.Translate(target * 2f * Time.deltaTime);
+            yield return new WaitForSeconds(5);
+
+        }
+
+
     }
+
+    
+
 }

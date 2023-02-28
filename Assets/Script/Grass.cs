@@ -8,6 +8,8 @@ public class Grass : MonoBehaviour
 
     [SerializeField] GameObject[] Trees;
     int temp;
+    [SerializeField] Transform treeParent;
+
     //List<GameObject> ActiveTrees;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,7 @@ public class Grass : MonoBehaviour
             Instantiate(
                 Trees[Random.Range(0, Trees.Length)], 
                 new Vector3(temp, -1.4f, 0), 
-                Quaternion.identity);
+                Quaternion.identity, treeParent);
         }
     }
 
