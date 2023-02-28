@@ -21,7 +21,7 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         followPlayer();
-
+       
     }
 
     void followPlayer()
