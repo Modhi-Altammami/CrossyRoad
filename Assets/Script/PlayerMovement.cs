@@ -6,13 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
 
     Vector3 PlayerTransform;
-    Animator m_Animator;
+    //Animator m_Animator;
     bool isMoving;
 
     void Start()
     {
         //PlayerTransform = transform.position;
-        m_Animator = gameObject.GetComponent<Animator>();
+       // m_Animator = gameObject.GetComponent<Animator>();
 
     }
 
@@ -28,31 +28,31 @@ public class PlayerMovement : MonoBehaviour
         if(isMoving) return;    
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            jump();
-            transform.position += Vector3.left;
+           // jump();
+            transform.position += Vector3.left*2;
            // transform.eularAngular = new Vector3(0, -90, 0);
 
 
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            jump();
-            transform.position += Vector3.right;
+         //   jump();
+            transform.position += Vector3.right*2;
            // transform.eularAngular = new Vector3(0,90,0);      
 
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            jump();
-            transform.position += Vector3.forward;
+         //   jump();
+            transform.position += Vector3.forward*2;
           //  transform.eularAngular = new Vector3(0, 0, 0);
 
 
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            jump();
-            transform.position += Vector3.back;
+         //   jump();
+            transform.position += Vector3.back*2;
            // transform.eularAngular = new Vector3(0, 180, 0);
 
         }
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     void jump()
     {
-        m_Animator.SetTrigger("activateJump");
+       //s m_Animator.SetTrigger("activateJump");
         isMoving = true;
     }
 

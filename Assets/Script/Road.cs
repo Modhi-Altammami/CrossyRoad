@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Road : MonoBehaviour
 {
 
     [SerializeField] GameObject[] Obstacles;
-    [SerializeField] Transform[] Lanes;
+    [SerializeField] Transform Lanes;
     [SerializeField] bool isRoad;
-    GameObject temp;
-    float step;
-    Vector3 target = new Vector3(1, 0.5f, 0);
+ 
     void Start()
     {
         StartCoroutine(popObstacle());
@@ -22,10 +21,10 @@ public class Road : MonoBehaviour
         while (true)
         {
             GameObject Obstacle = Obstacles[Random.Range(0, Obstacles.Length)];
-            Instantiate(Obstacle, Lanes[Random.Range(0, Lanes.Length)]);
+            Instantiate(Obstacle, Lanes);
             //MoveFunction(dragon);
           //  dragon.transform.Translate(target * 2f * Time.deltaTime);
-            yield return new WaitForSeconds(isRoad?5:0.5f);
+            yield return new WaitForSeconds(Random.Range(3, 10));
 
         }
 

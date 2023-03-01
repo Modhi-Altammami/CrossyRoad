@@ -9,26 +9,27 @@ public class DragonMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = new Vector3(isRoad?10f:30f, transform.position.y, transform.position.z);
-        StartCoroutine(MoveFunction());
+        target = new Vector3(50f, transform.position.y, transform.position.z);
+       // StartCoroutine(MoveFunction());
     }
 
-    IEnumerator MoveFunction()
+
+    void Update()
     {
 
-        while (true)
+        if(isRoad) {
+            transform.Translate(Vector3.forward * 4f * Time.deltaTime);
+                
+        }
+        else
         {
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, target, isRoad?0.0035f:0.003f);
-
-            // If the object has arrived, stop the coroutine
-            if (gameObject.transform.position.x > target.x)
-            {
-                yield break;
-            }
-
-            // Otherwise, continue next frame
-
-            yield return null;
+            transform.Translate(Vector3.right * 10f * Time.deltaTime);
+         
+        }
+        if (gameObject.transform.position.x > target.x)
+        {
+            Destroy(gameObject);
         }
     }
+   
 }
