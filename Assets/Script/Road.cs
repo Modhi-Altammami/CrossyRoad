@@ -20,11 +20,10 @@ public class Road : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(Random.Range(0, 4));
             GameObject Obstacle = Obstacles[Random.Range(0, Obstacles.Length)];
             Instantiate(Obstacle, Lanes);
-            //MoveFunction(dragon);
-          //  dragon.transform.Translate(target * 2f * Time.deltaTime);
-            yield return new WaitForSeconds(Random.Range(3, 10));
+            yield return new WaitForSeconds(Random.Range(3, 11));
 
         }
 

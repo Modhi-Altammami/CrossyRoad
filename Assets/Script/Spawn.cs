@@ -45,9 +45,7 @@ public class Spawn : MonoBehaviour
 
     void SetPrefabActive()
     {
-
             curPrefab = Instantiate(Prefabs[Random.Range(0, Prefabs.Length)], pos, Quaternion.identity);
-            curPrefab.SetActive(true);
             AddedPrefabs.Add(curPrefab);
             pos.z = pos.z + 2;
         

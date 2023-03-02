@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         {
            // jump();
             transform.position += Vector3.left*2;
-           // transform.eularAngular = new Vector3(0, -90, 0);
+            transform.eulerAngles = new Vector3(0, -90, 0);
 
 
         }
@@ -38,14 +38,14 @@ public class PlayerMovement : MonoBehaviour
         {
          //   jump();
             transform.position += Vector3.right*2;
-           // transform.eularAngular = new Vector3(0,90,0);      
+            transform.eulerAngles = new Vector3(0,90,0);      
 
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
          //   jump();
             transform.position += Vector3.forward*2;
-          //  transform.eularAngular = new Vector3(0, 0, 0);
+             transform.eulerAngles = new Vector3(0, 0, 0);
 
 
         }
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         {
          //   jump();
             transform.position += Vector3.back*2;
-           // transform.eularAngular = new Vector3(0, 180, 0);
+             transform.eulerAngles = new Vector3(0, 180, 0);
 
         }
     }

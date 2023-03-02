@@ -87,4 +87,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb6cf2c20c34e442b0db3aef168bcaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRoad: 1
+  target: 50
