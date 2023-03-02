@@ -8,7 +8,7 @@ public class DragonMovement : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * 10f * Time.deltaTime);
-        if (gameObject.transform.position.x > target)
+        if (gameObject.transform.position.x > target || gameObject.transform.position.x <-1* target)
         {
             Destroy(gameObject);
         }
