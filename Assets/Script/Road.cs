@@ -18,7 +18,6 @@ public class Road : MonoBehaviour
     void Start()
     {
        
-        Debug.Log(randomDir);
         StartCoroutine(popObstacle());
       
     }

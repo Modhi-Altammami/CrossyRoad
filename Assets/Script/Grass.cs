@@ -15,10 +15,9 @@ public class Grass : MonoBehaviour
     {
         for(int i=0;i < 4; i++)
         {
-            if (i % 2 == 0)
-                temp = Random.Range(-10, -2) + i*-4;
-            else
-                temp = Random.Range(2, 10) + i*4;
+            // to disterbute the trees 4 unit
+                temp = Random.Range(-20, 20) + i*5;
+           
 
             Instantiate(
                 Trees[Random.Range(0, Trees.Length)], 
