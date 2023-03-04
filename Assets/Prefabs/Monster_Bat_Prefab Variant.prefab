@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_Bat_Prefab Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1625221395402176, guid: c9951ca0f61167b4593ffe21b0a089c8, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4085869397129016, guid: c9951ca0f61167b4593ffe21b0a089c8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -29,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4085869397129016, guid: c9951ca0f61167b4593ffe21b0a089c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.45
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 4085869397129016, guid: c9951ca0f61167b4593ffe21b0a089c8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -49,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4085869397129016, guid: c9951ca0f61167b4593ffe21b0a089c8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4085869397129016, guid: c9951ca0f61167b4593ffe21b0a089c8, type: 3}
       propertyPath: m_LocalRotation.z
@@ -75,6 +79,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2762784872340615663}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &-2079757490114450040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2761449932930628655}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8434162, y: 1.592402, z: 0.99999964}
+  m_Center: {x: -0.026440054, y: 0.296201, z: 0.00000018626451}
 --- !u!114 &518463009
 MonoBehaviour:
   m_ObjectHideFlags: 0

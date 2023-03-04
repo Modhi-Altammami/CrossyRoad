@@ -48,7 +48,6 @@ MonoBehaviour:
   Obstacles:
   - {fileID: 1099624724322862844, guid: 782bf16417a80184f8140d4e9bdd05be, type: 3}
   Lanes: {fileID: 5354061356917676023}
-  isRoad: 0
 --- !u!1 &5354061356917676022
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +62,7 @@ GameObject:
   - component: {fileID: 5354061356917675976}
   m_Layer: 0
   m_Name: wave1
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

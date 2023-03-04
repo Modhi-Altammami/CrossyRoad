@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimeRabbit_Prefab Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1773656247975474, guid: 57d78de69bcaf8a4e969c0c3350b859b, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4892504893775866, guid: 57d78de69bcaf8a4e969c0c3350b859b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -75,6 +79,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3934351515788772619}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &6381674804614493291
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3936096571845851961}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.448378, z: 1}
+  m_Center: {x: 0, y: 0.22418815, z: 0}
 --- !u!114 &1491784070
 MonoBehaviour:
   m_ObjectHideFlags: 0

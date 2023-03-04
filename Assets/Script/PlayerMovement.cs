@@ -71,7 +71,22 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Game Over: "+collision);
+
+        if(collision.tag == "GameOver")
+            {
+                Debug.Log("Cube Game Over: " + collision);
+            }
+
+        if (collision.tag == "Obstacle")
+            {
+            Debug.Log("Obstacle hit: "+ collision);
+        }
+
+        if (collision.tag == "log")
+        {
+            Debug.Log("log hit: " + collision);
+        }
+
     }
 }
 
