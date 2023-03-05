@@ -67,14 +67,15 @@ public class Player : MonoBehaviour
    public void hitRaycast()
     {
         direction = Vector3.down;
-        //Debug.Log(direction);
+        Debug.Log("hitRaycast");
 
         ray = new Ray(transform.position, direction);
             RaycastHit hitData;
             if (Physics.Raycast(ray, out hitData))
             {
             Debug.Log(hitData.collider.gameObject.name);
-                if (hitData.collider.gameObject.tag == "log")
+            Debug.Log(transform.position);
+            if (hitData.collider.gameObject.tag == "log")
                 {
                     transform.eulerAngles = new Vector3(0, hitData.collider.gameObject.transform.eulerAngles.y, 0);
                     onLog = true;

@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         //PlayerTransform = transform.position;
-        m_Animator = gameObject.GetComponent<Animator>();
+        //m_Animator = gameObject.GetComponent<Animator>();
 
     }
 
@@ -32,28 +32,28 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position += Vector3.left*2;
             transform.eulerAngles = new Vector3(0, -90, 0);
-            jump();
+           // jump();
 
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             transform.position += Vector3.right*2;
             transform.eulerAngles = new Vector3(0,90,0);
-            jump();
+            //jump();
 
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             transform.position += Vector3.forward*2;
             transform.eulerAngles = new Vector3(0, 0, 0);
-            jump();
+          //  jump();
             Player.instance.hitRaycast();
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             transform.position += Vector3.back*2;
             transform.eulerAngles = new Vector3(0, 180, 0);
-            jump();
+          //  jump();
             Player.instance.hitRaycast();
 
         }
