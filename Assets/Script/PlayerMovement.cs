@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
 
     Vector3 PlayerTransform;
-    //Animator m_Animator;
+    Animator m_Animator;
     bool isMoving;
 
     void Start()
     {
         //PlayerTransform = transform.position;
-       // m_Animator = gameObject.GetComponent<Animator>();
+        m_Animator = gameObject.GetComponent<Animator>();
 
     }
 
@@ -24,43 +24,44 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckPlayerMovement()
     {
-       
-        if(isMoving) return;    
+        if (isMoving)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-           // jump();
             transform.position += Vector3.left*2;
             transform.eulerAngles = new Vector3(0, -90, 0);
-
+            jump();
 
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-         //   jump();
             transform.position += Vector3.right*2;
-            transform.eulerAngles = new Vector3(0,90,0);      
+            transform.eulerAngles = new Vector3(0,90,0);
+            jump();
 
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-         //   jump();
             transform.position += Vector3.forward*2;
-             transform.eulerAngles = new Vector3(0, 0, 0);
-
-
+            transform.eulerAngles = new Vector3(0, 0, 0);
+            jump();
+            Player.instance.hitRaycast();
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-         //   jump();
             transform.position += Vector3.back*2;
-             transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.eulerAngles = new Vector3(0, 180, 0);
+            jump();
+            Player.instance.hitRaycast();
 
         }
     }
 
     void jump()
     {
-       //s m_Animator.SetTrigger("activateJump");
+        m_Animator.SetTrigger("activateJump");
         isMoving = true;
     }
 
@@ -69,26 +70,9 @@ public class PlayerMovement : MonoBehaviour
         isMoving = false;
     }
 
-    void OnTriggerEnter(Collider collision)
-    {
-
-        if(collision.tag == "GameOver")
-            {
-                Debug.Log("Cube Game Over: " + collision);
-            }
-
-        if (collision.tag == "Obstacle")
-            {
-            Debug.Log("Obstacle hit: "+ collision);
-        }
-
-        if (collision.tag == "log")
-        {
-            Debug.Log("log hit: " + collision);
-        }
-
+   
     }
-}
+
 
 
 
