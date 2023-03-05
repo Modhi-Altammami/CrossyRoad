@@ -1,4 +1,5 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -36,11 +37,13 @@ public class Player : MonoBehaviour
 
         if (onDead)
         {
-            return;
+            StartCoroutine(wait());
+            
         }
         if (onRiver)
         {
             transform.Translate(Vector3.down * 5f * Time.deltaTime);
+            onDead= true;
             return;
         }
 
@@ -92,6 +95,12 @@ public class Player : MonoBehaviour
             onLog = false;
         }
 
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(3);
+        GameOverEvent?.Invoke();
     }
 
 
