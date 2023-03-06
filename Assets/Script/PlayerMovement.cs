@@ -1,85 +1,86 @@
-
 using UnityEngine;
 using System;
 
-public class PlayerMovement : MonoBehaviour
+namespace modi.crossyRoad
 {
-    /// <summary>
-    /// the  script handels the player movement 
-    /// </summary>
-
-    Vector3 PlayerTransform;
-    Animator m_Animator;
-    bool isMoving;
-
-    void Start()
+    public class PlayerMovement : MonoBehaviour
     {
-        //PlayerTransform = transform.position;
-        //m_Animator = gameObject.GetComponent<Animator>();
+        /// <summary>
+        /// the  script handels the player movement 
+        /// </summary>
 
-    }
+        Vector3 PlayerTransform;
+        Animator m_Animator;
+        bool isMoving;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!Player.instance.onDead)
+        void Start()
         {
-            CheckPlayerMovement();
+            //PlayerTransform = transform.position;
+            //m_Animator = gameObject.GetComponent<Animator>();
 
         }
-    }
 
-    void CheckPlayerMovement()
-    {
-        if (isMoving)
+        // Update is called once per frame
+        void Update()
         {
-            return;
+            if (!Player.instance.onDead)
+            {
+                CheckPlayerMovement();
+
+            }
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+
+        void CheckPlayerMovement()
         {
-            transform.position += Vector3.left*2;
-            transform.eulerAngles = new Vector3(0, -90, 0);
-           // jump();
+            if (isMoving)
+            {
+                return;
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                transform.position += Vector3.left * 2;
+                transform.eulerAngles = new Vector3(0, -90, 0);
+                // jump();
 
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                transform.position += Vector3.right * 2;
+                transform.eulerAngles = new Vector3(0, 90, 0);
+                //jump();
+
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                transform.position += Vector3.forward * 2;
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                //  jump();
+                Player.instance.hitRaycast();
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                transform.position += Vector3.back * 2;
+                transform.eulerAngles = new Vector3(0, 180, 0);
+                //  jump();
+                Player.instance.hitRaycast();
+
+            }
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+
+        void jump()
         {
-            transform.position += Vector3.right*2;
-            transform.eulerAngles = new Vector3(0,90,0);
-            //jump();
-
+            m_Animator.SetTrigger("activateJump");
+            isMoving = true;
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+
+        void endJump()
         {
-            transform.position += Vector3.forward*2;
-            transform.eulerAngles = new Vector3(0, 0, 0);
-          //  jump();
-            Player.instance.hitRaycast();
+            isMoving = false;
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            transform.position += Vector3.back*2;
-            transform.eulerAngles = new Vector3(0, 180, 0);
-          //  jump();
-            Player.instance.hitRaycast();
 
-        }
+
     }
-
-    void jump()
-    {
-        m_Animator.SetTrigger("activateJump");
-        isMoving = true;
-    }
-
-    void endJump()
-    {
-        isMoving = false;
-    }
-
-   
-    }
-
+}
 
 
 

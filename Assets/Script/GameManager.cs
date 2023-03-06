@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+namespace modi.crossyRoad
 {
-
-    /// <summary>
-    /// the game manager handels when the player loses
-    /// </summary>
-    [SerializeField] Player player;
-
-    void Awake()
+    public class GameManager : MonoBehaviour
     {
-          player.GameOverEvent += GameOver;
-    }
-    void GameOver()
-    {
-        SceneManager.LoadScene("GameOver");
+
+        /// <summary>
+        /// the game manager handels when the player loses
+        /// </summary>
+        [SerializeField] Player player;
+
+        void Awake()
+        {
+            player.GameOverEvent += GameOver;
+        }
+        void GameOver()
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 }
