@@ -13,12 +13,10 @@ namespace modi.crossyRoad
         Animator m_Animator;
         bool isMoving;
         public event Action PlayerForward;
-        float PrevPlayerPosition;
         void Start()
         {
             //PlayerTransform = transform.position;
             //m_Animator = gameObject.GetComponent<Animator>();
-            PrevPlayerPosition= transform.position.z;
 
         }
 
