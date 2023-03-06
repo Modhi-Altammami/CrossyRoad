@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    /// <summary>
+    /// the script handels the camera movement along with the player movement (only forward, left and right)
+    /// </summary>
 
     [SerializeField] Transform player;
     [SerializeField] float smoothSpeed;

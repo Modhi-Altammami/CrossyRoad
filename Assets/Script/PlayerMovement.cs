@@ -4,6 +4,9 @@ using System;
 
 public class PlayerMovement : MonoBehaviour
 {
+    /// <summary>
+    /// the  script handels the player movement 
+    /// </summary>
 
     Vector3 PlayerTransform;
     Animator m_Animator;
@@ -19,7 +22,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckPlayerMovement();
+        if (!Player.instance.onDead)
+        {
+            CheckPlayerMovement();
+
+        }
     }
 
     void CheckPlayerMovement()

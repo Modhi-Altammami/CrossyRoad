@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    /// <summary>
+    /// the game manager handels when the player loses
+    /// </summary>
     [SerializeField] Player player;
 
     void Awake()

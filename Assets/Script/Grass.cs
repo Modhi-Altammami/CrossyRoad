@@ -5,7 +5,9 @@ using Random = UnityEngine.Random;
 
 public class Grass : MonoBehaviour
 {
-
+    /// <summary>
+    /// the script handels the random instantation in for the trees in the grass road
+    /// </summary>
     [SerializeField] GameObject[] Trees;
     [SerializeField] Transform treeParent;
     int temp;

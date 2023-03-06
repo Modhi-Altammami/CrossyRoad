@@ -5,9 +5,16 @@ using System;
 
 public class Player : MonoBehaviour
 {
+    
+    /// <summary>
+    /// This script handels all the player interaction with the colliders
+    /// and send to game managers if the user is hit by an obstecals or go overboared the allowed area.
+    /// </summary>
+    
+    //the bool variables is to determine wither the player is on a specific condition (log , river , death)
     bool onLog;
     bool onRiver;
-    bool onDead;
+    public bool onDead;
     Animator m_Animator;
     Ray ray;
     Vector3 direction;
@@ -23,7 +30,7 @@ public class Player : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }   
+        }
 
     }
     void Start()
@@ -34,6 +41,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.x < -10 || transform.position.x > 10)
+        {
+            m_Animator.SetTrigger("Dizzy");
+            onDead = true;
+        }
 
         if (onDead)
         {
@@ -63,7 +75,7 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    // call this method if the user press forward
    public void hitRaycast()
     {
         direction = Vector3.down;
@@ -98,10 +110,11 @@ public class Player : MonoBehaviour
 
     }
 
+    //wait for 3 seconds before going to the game over scene
     IEnumerator wait()
     {
         yield return new WaitForSeconds(3);
-        GameOverEvent?.Invoke();
+        Dead();
     }
 
 

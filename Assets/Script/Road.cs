@@ -5,7 +5,9 @@ using Random = UnityEngine.Random;
 
 public class Road : MonoBehaviour
 {
-
+    /// <summary>
+    /// the script handels the monster road and instantiate obstacles randomly from any direction
+    /// </summary>
     [SerializeField] GameObject[] Obstacles;
     [SerializeField] Transform Lanes;
     int randomDir;

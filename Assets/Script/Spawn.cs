@@ -5,6 +5,9 @@ using Random = UnityEngine.Random;
 
 public class Spawn : MonoBehaviour
 {
+    /// <summary>
+    /// the script handels the 3 (grass ,river , monster) roads instantation randomly and also destroy the road when no longer in the game scene
+    /// </summary>
 
     [SerializeField] GameObject[] Prefabs;
     [SerializeField] Transform player;
