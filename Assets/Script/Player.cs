@@ -21,7 +21,7 @@ namespace modi.crossyRoad
         Vector3 direction;
         public event Action GameOverEvent;
         public static Player instance;
-
+        PlayerMovement player;
         void Awake()
         {
             if (instance == null)
@@ -32,11 +32,15 @@ namespace modi.crossyRoad
             {
                 Destroy(gameObject);
             }
+            player = gameObject.GetComponent<PlayerMovement>();
 
         }
         void Start()
         {
             m_Animator = gameObject.GetComponent<Animator>();
+            player.PlayerForward += hitRaycast;
+            
+
         }
 
         // Update is called once per frame
@@ -97,7 +101,7 @@ namespace modi.crossyRoad
 
                 else if (hitData.collider.gameObject.tag == "river")
                 {
-                    m_Animator.SetTrigger("Drown");
+                    m_Animator.SetTrigger("Dizzy");
                     Debug.Log("river hit: " + hitData.collider.gameObject.tag);
                     onRiver = true;
                     onLog = false;

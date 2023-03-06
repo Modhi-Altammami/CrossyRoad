@@ -12,11 +12,13 @@ namespace modi.crossyRoad
         Vector3 PlayerTransform;
         Animator m_Animator;
         bool isMoving;
-
+        public event Action PlayerForward;
+        float PrevPlayerPosition;
         void Start()
         {
             //PlayerTransform = transform.position;
             //m_Animator = gameObject.GetComponent<Animator>();
+            PrevPlayerPosition= transform.position.z;
 
         }
 
@@ -36,6 +38,8 @@ namespace modi.crossyRoad
             {
                 return;
             }
+
+            
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 transform.position += Vector3.left * 2;
@@ -55,14 +59,16 @@ namespace modi.crossyRoad
                 transform.position += Vector3.forward * 2;
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 //  jump();
-                Player.instance.hitRaycast();
+               
+                PlayerForward?.Invoke();
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 transform.position += Vector3.back * 2;
                 transform.eulerAngles = new Vector3(0, 180, 0);
                 //  jump();
-                Player.instance.hitRaycast();
+                PlayerForward?.Invoke();
+
 
             }
         }
