@@ -19,7 +19,6 @@ namespace modi.crossyRoad
         {
             //PlayerTransform = transform.position;
             //m_Animator = gameObject.GetComponent<Animator>();
-
         }
 
         // Update is called once per frame
@@ -39,10 +38,14 @@ namespace modi.crossyRoad
                 return;
             }
 
-            
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                if (transform.position.x < -10)
+                {
+                    return;
+                }
                 transform.eulerAngles = new Vector3(0, -90, 0);
+
                if(!TreehitRaycast()) 
                 { 
                 transform.position += Vector3.left * 2;
@@ -52,6 +55,10 @@ namespace modi.crossyRoad
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
+                if (transform.position.x > 10)
+                {
+                    return;
+                }
                 transform.eulerAngles = new Vector3(0, 90, 0);
                 if (!TreehitRaycast())
                 {
@@ -63,7 +70,10 @@ namespace modi.crossyRoad
             }
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                transform.eulerAngles = new Vector3(0, 0, 0);
+                if (!Player.instance.onLog)
+                {
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                }
                 if (!TreehitRaycast())
                 {
                     transform.position += Vector3.forward * 2;
@@ -73,14 +83,16 @@ namespace modi.crossyRoad
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                transform.eulerAngles = new Vector3(0, 180, 0);
-                if (!TreehitRaycast())
+                if (!Player.instance.onLog)
                 {
+                    transform.eulerAngles = new Vector3(0, 180, 0);
+                }
+                if (!TreehitRaycast())
+                { 
                     transform.position += Vector3.back * 2;
                     //  jump();
                     PlayerForward?.Invoke();
                 }
-
 
             }
         }
@@ -98,14 +110,15 @@ namespace modi.crossyRoad
 
         public bool TreehitRaycast()
         {
-            direction = transform.forward;
-
-            ray = new Ray(transform.position, direction);
+            ray = new Ray(transform.position, transform.forward);
             RaycastHit hitData;
             if (Physics.Raycast(ray, out hitData , 2f))
             {
                 if (hitData.collider.gameObject.tag == "tree")
                 {
+                    if (Player.instance.onLog) {
+                        return false;
+                    }
                     Debug.Log(hitData.collider.gameObject.name);
                     return true;
                 }

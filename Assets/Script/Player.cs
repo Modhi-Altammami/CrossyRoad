@@ -13,12 +13,11 @@ namespace modi.crossyRoad
         /// </summary>
 
         //the bool variables is to determine wither the player is on a specific condition (log , river , death)
-        bool onLog;
+        public bool onLog;
         bool onRiver;
         public bool onDead;
         Animator m_Animator;
         Ray ray;
-        Vector3 direction;
         public event Action GameOverEvent;
         public static Player instance;
         PlayerMovement player;
@@ -48,12 +47,6 @@ namespace modi.crossyRoad
         // Update is called once per frame
         void Update()
         {
-            if (transform.position.x < -10 || transform.position.x > 10)
-            {
-                m_Animator.SetTrigger("Dizzy");
-                onDead = true;
-            }
-
             if (onDead)
             {
                 StartCoroutine(wait());
@@ -69,6 +62,11 @@ namespace modi.crossyRoad
             if (onLog)
             {
                 transform.Translate(Vector3.forward * 10f * Time.deltaTime);
+                if (transform.position.x < -15 || transform.position.x > 15)
+                {
+                    m_Animator.SetTrigger("Dizzy");
+                    onDead = true;
+                }
             }
         }
 
@@ -86,8 +84,7 @@ namespace modi.crossyRoad
         // call this method if the user press forward
         public void hitRaycast()
         {
-            direction = Vector3.down;
-            ray = new Ray(transform.position, direction);
+            ray = new Ray(transform.position, Vector3.down);
             RaycastHit hitData;
             if (Physics.Raycast(ray, out hitData))
             {
@@ -126,7 +123,6 @@ namespace modi.crossyRoad
         void Dead()
         {
             GameOverEvent?.Invoke();
-
         }
 
     }
