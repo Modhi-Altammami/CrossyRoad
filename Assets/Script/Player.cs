@@ -22,6 +22,7 @@ namespace modi.crossyRoad
         public event Action GameOverEvent;
         public static Player instance;
         PlayerMovement player;
+        AudioSource loseMusic;
         void Awake()
         {
             if (instance == null)
@@ -33,6 +34,7 @@ namespace modi.crossyRoad
                 Destroy(gameObject);
             }
             player = gameObject.GetComponent<PlayerMovement>();
+            loseMusic = gameObject.GetComponent<AudioSource>();
 
         }
         void Start()
@@ -76,6 +78,7 @@ namespace modi.crossyRoad
             {
                 Debug.Log("Obstacle hit: " + collision);
                 m_Animator.SetTrigger("Died");
+                loseMusic.Play();
                 onDead = true;
             }
         }
@@ -98,6 +101,7 @@ namespace modi.crossyRoad
                 else if (hitData.collider.gameObject.tag == "river")
                 {
                     m_Animator.SetTrigger("Dizzy");
+                    loseMusic.Play();
                     Debug.Log("river hit: " + hitData.collider.gameObject.tag);
                     onRiver = true;
                     onLog = false;
