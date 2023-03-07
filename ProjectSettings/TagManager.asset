@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - log
   - river
+  - tree
   layers:
   - Default
   - TransparentFX

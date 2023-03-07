@@ -20,7 +20,11 @@ namespace modi.crossyRoad
             for (int i = 0; i < 4; i++)
             {
                 // to disterbute the trees 4 unit
-                temp = Random.Range(-20, 20) + i * 5;
+                temp = Random.Range(-20, 20) + i * 4;
+                if (temp % 2 != 0)
+                {
+                    temp++;
+                }
 
 
                 Instantiate(

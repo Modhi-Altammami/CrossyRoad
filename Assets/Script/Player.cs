@@ -84,14 +84,10 @@ namespace modi.crossyRoad
         public void hitRaycast()
         {
             direction = Vector3.down;
-            Debug.Log("hitRaycast");
-
             ray = new Ray(transform.position, direction);
             RaycastHit hitData;
             if (Physics.Raycast(ray, out hitData))
             {
-                Debug.Log(hitData.collider.gameObject.name);
-                Debug.Log(transform.position);
                 if (hitData.collider.gameObject.tag == "log")
                 {
                     transform.eulerAngles = new Vector3(0, hitData.collider.gameObject.transform.eulerAngles.y, 0);
